@@ -1,0 +1,1574 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+span.spelle
+	{mso-style-name:spelle;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:16.0pt;line-height:107%;color:black'>Decentralized Application
+(DApp) based on Ethereum (ERC-721) Dog Adoption Solidity smart contract</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:16.0pt;line-height:107%;color:black'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;color:black'>Project
+Hosted: </span><span class=MsoHyperlink><span style='font-size:14.0pt;
+line-height:107%'><a href="https://dog-adoption-faf7b.firebaseapp.com/"
+target="_blank">https://dog-adoption-faf7b.firebaseapp.com/</a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;color:black'>Video
+link (Ganache): </span><span class=MsoHyperlink><span style='font-size:14.0pt;
+line-height:107%'><a href="https://youtu.be/NAeeolO4D38" target="_blank">https://youtu.be/NAeeolO4D38</a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;color:black'>Video
+link (Rinkeby Testnet): </span><span class=MsoHyperlink><span style='font-size:
+14.0pt;line-height:107%'><a href="https://youtu.be/tFCLK55-UQw" target="_blank">https://youtu.be/tFCLK55-UQw</a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;color:black'>Git
+Repository: </span><span class=MsoHyperlink><span style='font-size:14.0pt;
+line-height:107%'><a href="https://github.com/Ashot72/Dog-Adoption-dApp"
+target="_blank">https://github.com/Ashot72/Dog-Adoption-dApp</a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;color:black'>Git
+Repository Smart Contract: </span><span class=MsoHyperlink><span
+style='font-size:14.0pt;line-height:107%'><a
+href="https://github.com/Ashot72/solidity-ERC-721--dogadoption-contract"
+target="_blank">https://github.com/Ashot72/solidity-ERC-721--dogadoption-contract</a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;color:black'>Description
+Page: </span><span class=MsoHyperlink><span style='font-size:14.0pt;line-height:
+107%'><a
+href="https://ashot72.github.io/Dog-Adoption-dApp/description/index.html">https://ashot72.github.io/Dog-Adoption-dApp/description/index.html</a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>This DApp is based on Dog
+Adoption Smart Contract <span class=MsoHyperlink><a
+href="https://github.com/Ashot72/solidity-ERC-721--dogadoption-contract"
+target="_blank">https://github.com/Ashot72/solidity-ERC-721--dogadoption-contract</a>.
+</span><span style='color:black'>A dog owner (someone from </span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>animal rescue
+organization) posts a dog (dog owner info and dog picture) for an adoption via
+Ethereum smart contract. A dog owner should be certain that a possible </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>dog adopter
+already owned a dog (dog adopter info and dog picture) before bringing a new
+dog home.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>To make DApp
+development faster we choose Ganache https://truffleframework.com/ganache which
+is a personal blockchain for Ethereum development you</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>can use to
+deploy contracts, develop your applications and run tests. Ganache sets up 10
+default Ethereum addresses, complete with private keys and all, and pre-loads
+them </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>with 100
+simulated Ether each. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>There is no <i>mining</i>
+with Ganache, instead, it immediately confirms any transaction coming its way
+(do not wait 30 seconds for each transaction). This makes development </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>easier; you can
+write unit tests for your code which executes on this simulated blockchain,
+deploy smart contracts, play around, call functions etc. Ganache comes in</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>two flavors:
+CLI and UI. We will use UI version purely because of its simplicity.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:107%'>Development
+with Ganache</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Download
+Ganache from <span class=MsoHyperlink><a
+href="https://truffleframework.com/ganache" target="_blank">https://truffleframework.com/ganache</a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1049 height=636 id="Picture 1" src="index_files/image001.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 1</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Network ID
+is 5777 and running on <span class=MsoHyperlink><a href="http://127.0.0.1:7545">http://127.0.0.1:7545</a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=798 height=657 id="Picture 3" src="index_files/image002.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 2</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>This
+application was created with Truffle which is a development environment to make
+smart contracts compilation, development, testing easier <span
+class=MsoHyperlink><a href="https://truffleframework.com/" target="_blank">https://truffleframework.com/</a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We run
+migrate command (skip <i>development</i> in the command as it is the default
+one). Migrations (deployment) deploy contracts to Ethereum network. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>To be compatible
+with windows you can either rename your configuration file to <i>truffle-config.js</i>
+or execute truffle with <i>truffle.cmd</i>. If you do not care about windows</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>then you can
+use <i>truffle.js </i>(Make sure Ganache is running)</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=897 height=517 id="Picture 4" src="index_files/image003.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 3</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Here is the
+output.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=954 height=535 id="Picture 5" src="index_files/image004.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 4</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>0xeEb3C07AE577a783FDE8cD0f42E08813296c7aBB
+is the first account.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1182 height=530 id="Picture 6" src="index_files/image005.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 5</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We have two
+contracts deployed TokenRepository, DogAdoptionRepository</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>TokenRepository
+contract address is 0x1c0f133e6111fe1da976442aef1514f60fb48bcf which is
+deployed by the first account 0xeEb3C07AE577a783FDE8cD0f42E08813296c7aBB</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>and
+transaction hash is 0x8f7af5cd233a4cb5e1ec1046225ce9c5287e61b0048474376ebc6b2b41009ad1</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>DogRepository
+constract address is 0xdda893d1087c69b01476a1e77d8a6bcea2b77190 which is
+deployed by the first account 0xeEb3C07AE577a783FDE8cD0f42E08813296c7aBB</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>and
+transaction hash is 0x540de5ace76b32c5f9b04c53d29f39902ada7255da47ab58858d76c7add2b6fe</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1228 height=411 id="Picture 7" src="index_files/image006.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 6</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Go to <span
+class=MsoHyperlink><a href="https://metamask.io/">https://metamask.io/</a></span>
+to install chrome extension.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Metamask
+browser extension turns Google Chrome into an Ethereum browser, letting
+websites retrieve data from the blockchain, and letting users securely manage
+identities</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>and sign
+transactions.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=665 height=643 id="Picture 8" src="index_files/image007.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 7</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>After
+installing Metamask and accepting terms of use you will be redirected to this
+screen. Click on <i>Import using account seed phrase</i></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=938 height=590 id="Picture 9" src="index_files/image008.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 8</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We use
+account mnemonic which is 12-word phrase. Entire idea behind mnemonic is to
+make it a lot easier for you to manage your keys; public keys and</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>private keys
+and addresses. With the same 12 words it always generates the same series of
+accounts. It's way more important to remember these words than anything else.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=882 height=652 id="Picture 10" src="index_files/image009.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 9</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>You can see 12-word
+mnemonic and accounts generated.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=899 height=646 id="Picture 11" src="index_files/image010.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 10</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We copy and
+paste the mnemonic set a password and click Restore.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=643 height=575 id="Picture 12" src="index_files/image011.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 11</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Now, we
+should connect Metamask to Ganache via Custom RPC. Click on Custom RPC.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1114 height=569 id="Picture 13" src="index_files/image012.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 12</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>You specify
+RPC SERVER path defined in Ganache and click Save.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=446 height=571 id="Picture 14" src="index_files/image013.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 13</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Our custom
+PRC is set up. Click on it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1236 height=566 id="Picture 15" src="index_files/image014.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 14</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>You see that
+Metamask displays our first account that can be seen on Ganache.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=632 height=624 id="Picture 16" src="index_files/image015.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 15</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We are back
+to our project. We type <i>npm run dev</i> to run the project. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1240 height=585 id="Picture 17" src="index_files/image016.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 16</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>The project
+displays the latest block which is the current block in Ganache. The project
+footer displays Metamask info; the network and Id, current account address etc.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=989 height=485 id="Picture 18" src="index_files/image017.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 17</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>All images
+are taken from the video.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>First
+account is creating a new dog adoption.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1037 height=637 id="Picture 20" src="index_files/image018.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 18</span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt'>New Dog Adoption </span></i><span
+style='font-size:14.0pt'>uses Vuetify Stepper (Wizard) component. First step is
+to create a token and upload dog's picture to <span style='color:black'>IPFS
+(Interplanetary File System)</span></span></p>
+
+<p class=MsoNormal><span class=MsoHyperlink><span style='font-size:14.0pt'><a
+href="https://ipfs.infura.io/ipfs/">https://ipfs.infura.io/ipfs/</a></span></span><span
+class=MsoHyperlink><span style='font-size:14.0pt;color:#0563C1'>&nbsp;</span></span><span
+style='font-size:14.0pt;color:black'>as Ethereum is too heavy/expensive to store
+large blobs like images, video etc.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=801
+height=633 id="Picture 21" src="index_files/image019.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 19</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Here is the dog
+owner's info.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=868
+height=621 id="Picture 22" src="index_files/image020.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 20</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Selecting a dog
+picture.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=741
+height=650 id="Picture 23" src="index_files/image021.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 21</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>The picture was
+selected. It is time to create the token by <i>Create Token/Asset</i> button.
+Metamask appears on the screens to confirm or reject the transaction. We
+confirm it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=830
+height=605 id="Picture 24" src="index_files/image022.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 22</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>The second step
+is to select tokens from the dropdown.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1071
+height=631 id="Picture 27" src="index_files/image023.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 23</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>We selected the
+newly created token. Right after the selection both dog's owner and dog's info
+are retrieved form IPFS.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=870
+height=603 id="Picture 28" src="index_files/image024.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 24</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Next transaction
+is transfer ownership to the contract which is required to create a dog
+adoption. Another transaction is made.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=823
+height=632 id="Picture 29" src="index_files/image025.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 25</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Third step is to
+create the actual dog adoption based on the selected token.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=755
+height=441 id="Picture 30" src="index_files/image026.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 26</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>The comment on
+block timestamps refers to Ethereum network. We use Ganache so transactions are
+generated by us and not in every 15 seconds.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=725
+height=545 id="Picture 31" src="index_files/image027.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 27</span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;color:black'>Create Dog
+Adoption</span></i><span style='font-size:14.0pt;color:black'> transaction.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=845
+height=576 id="Picture 32" src="index_files/image028.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 28</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>First dog
+adoption is created.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=606
+height=594 id="Picture 33" src="index_files/image029.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 29</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>With the same
+account we create another dog adoption the exact way.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=916
+height=486 id="Picture 34" src="index_files/image030.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 30</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>An account can
+also delete any token that belongs it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=739
+height=452 id="Picture 36" src="index_files/image031.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 31</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;color:black'>Remove Token</span></i><span
+style='font-size:14.0pt;color:black'> transaction.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=741
+height=538 id="Picture 37" src="index_files/image032.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 32</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>The token is
+removed.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=625
+height=561 id="Picture 39" src="index_files/image033.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 33</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Let's reject a transaction
+this time.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=941
+height=481 id="Picture 40" src="index_files/image034.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 34</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>The app will tell
+you the reason. In general, all the errors will be displayed the same way.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=963
+height=540 id="Picture 41" src="index_files/image035.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 35</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>The second dog adoption
+is created by the same first account.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=921
+height=494 id="Picture 42" src="index_files/image036.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 36</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>If you open the
+Chrome's console you will see IPFS path where dog's owner and dog's info is located.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1198
+height=556 id="Picture 43" src="index_files/image037.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 37</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>The IPFS path and
+hash where data are located.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=690
+height=596 id="Picture 44" src="index_files/image038.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 38</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>This time
+Account2 is creating a dog adoption</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=845
+height=630 id="Picture 45" src="index_files/image039.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 39</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Dog's info can be
+viewed by clicking the arrow to expand the area.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1064
+height=433 id="Picture 46" src="index_files/image040.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 40</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>We have three dog
+adoptions created. Red ones are created by the first account and the green one
+by the second account. Note that owners cannot participate in their dog
+adoptions.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Now, the second
+account is selected in Metamask (green one) that is the reason <i>Participate</i>
+link is available for dog adoptions created by others, in this case by account
+one. So, the second</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>account can
+participate in dog adoptions created by the first account.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1266
+height=601 id="Picture 47" src="index_files/image041.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 41</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 2 is
+going to participate in <i>Beacon Animal Rescue </i>dog adoption.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=884
+height=609 id="Picture 48" src="index_files/image042.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 42</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Dog adopter
+registration is similar to Dog adoption. A dog adopter should let the dog
+adoption owner know that they already owned a dog before bringing a new dog
+home.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=809
+height=629 id="Picture 49" src="index_files/image043.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 43</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Here is the dog
+adopter's previous dog that he already adopted. So, he is a reliable dog owner.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=971
+height=600 id="Picture 50" src="index_files/image044.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 44</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Create
+Token/Asset transaction.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=966
+height=531 id="Picture 51" src="index_files/image045.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 45</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Next is <i>Transfer
+Ownership</i> similar to Dog Adoption transfer ownership (Figure22).</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=807
+height=478 id="Picture 53" src="index_files/image046.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 46</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>In the third
+step, applying dog adoption, you can send some money to rescue organization but
+it is not required at all. It is not mandatory.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>For demo purposes
+account 2 is about to send 10 ethers.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=985
+height=601 id="Picture 54" src="index_files/image047.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 47</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Currently account
+2 owns around 100 ether.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=949
+height=577 id="Picture 55" src="index_files/image048.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figurer 48</span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;color:black'>Apply dog
+adoption</span></i><span style='font-size:14.0pt;color:black'> transaction.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=819
+height=627 id="Picture 57" src="index_files/image049.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 49</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 2 is registered
+as an adopter for <i>Beacon Animal Rescue Adoption.</i></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=882
+height=515 id="Picture 58" src="index_files/image050.png"></span><span
+style='font-size:14.0pt;color:black'> </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 50</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Now, account 2
+owns 90 ether.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=998
+height=461 id="Picture 59" src="index_files/image051.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 51</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>This time Account
+3 is applying for a dog adoption the same way.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=881
+height=583 id="Picture 60" src="index_files/image052.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 52</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 3 is also
+registered for <i>Beacon Animal Rescue</i> and sent 5 ethers.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=974
+height=549 id="Picture 61" src="index_files/image053.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 53</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Now neither
+account 1 nor account 2 nor account3 owns a token. You can go account by
+account to check it. All tokens are owned by the contract.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1084
+height=539 id="Picture 62" src="index_files/image054.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 54</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>You may notice
+that the <i>3 Dogs Rescue Inc </i>has grayish background. You see that the end
+block is 17 while the latest block is 22. This means that 3 <i>Dogs Rescue Inc </i>adoption
+has ended.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1123
+height=537 id="Picture 63" src="index_files/image055.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 55</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>As <i>Beacon
+Animal Rescue</i> dog adoption was created by account 1 then he can make an
+adopter as a winner.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1179
+height=563 id="Picture 64" src="index_files/image056.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 56</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>If you switch to
+Account 2 then <i>Make Winner</i> link will not be available because Account 2
+is not the owner of <i>Beacon Animal Rescue</i> dog adoption.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=856
+height=563 id="Picture 65" src="index_files/image057.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 57</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Metamask is back
+to Account 1 and making Account 2 as a winner which sent 10 ether.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=649
+height=635 id="Picture 66" src="index_files/image058.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 58</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Transaction
+started.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=893
+height=611 id="Picture 68" src="index_files/image059.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 59</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account is the
+winner. </span></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;color:red'>Note, <i>Make
+Winner</i> button should not be available for other accounts of this dog
+adoption as a winner was selected. I fixed it after recording the video.</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;color:red'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=881
+height=460 id="Picture 69" src="index_files/image060.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 60</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Now, the owner of
+dog adoption <i>Beacon Animal Rescue</i> Account 1 received 10 ether sent by
+Account 2 to the contract. Account one owns around 110 ether (previously 100)</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1135
+height=549 id="Picture 71" src="index_files/image061.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 61</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>As a winner is
+already selected then other participants want to get their tokens and ethers
+back.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Instead of
+proactively sending money to dog adopters we use withdraw pattern which helps
+us to avoid re-entrance bugs that could cause unexpected behavior including
+financial loss. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>We should only
+send ETH to a dog adopter when they explicitly request it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=889
+height=463 id="Picture 72" src="index_files/image062.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 62</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account currently
+owns 95 ether. It was 100 before and he sent 5 ethers to the contract.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=919
+height=497 id="Picture 73" src="index_files/image063.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 63</span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;color:black'>Get Ownership
+Back and Withdraw</span></i><span style='font-size:14.0pt;color:black'>
+transaction</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=993
+height=585 id="Picture 74" src="index_files/image064.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 64</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 3 is
+refunded. Ethers that you see shows ethers sent by participants while applying as
+dog adopters and nothing else. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=844
+height=419 id="Picture 75" src="index_files/image065.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 65</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 3 balance
+want from 95 to 100 ether. 5 ethers are back to his account.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1026
+height=541 id="Picture 76" src="index_files/image066.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 66</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Let's check
+Account 1 tokens.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1079
+height=408 id="Picture 78" src="index_files/image067.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 67</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 1 does
+not have any token.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=867
+height=569 id="Picture 79" src="index_files/image068.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 68</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Switching to
+Account 2</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1000
+height=534 id="Picture 80" src="index_files/image069.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 69</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 2 owns 2
+tokens.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=995
+height=580 id="Picture 81" src="index_files/image070.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 70</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 2 was the
+winner. He got back his own token when participating as a dog adopter.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1051
+height=584 id="Picture 82" src="index_files/image071.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 71</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 2 is the
+winner and received the dog adoption owner token and the owner received 10
+ether sent by Account 2 to the contract. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=902
+height=600 id="Picture 83" src="index_files/image072.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 72</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Switching to
+Account 3</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1067
+height=540 id="Picture 84" src="index_files/image073.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 73</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 3 got
+both his token and ether back as he was not the winner.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1078
+height=535 id="Picture 86" src="index_files/image074.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 74</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 2 is
+participating to another dog adoption <i>Double Dog Dare Rescue</i></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1054
+height=543 id="Picture 87" src="index_files/image075.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 75</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>This time Account
+2 is sending 25 ether and currently has 90 ether on his balance.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=974
+height=638 id="Picture 88" src="index_files/image076.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 76</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>After the
+transaction Account 2 has 65 ether balance.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=773
+height=594 id="Picture 89" src="index_files/image077.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 77</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>You can expand
+the panel to see the dog Info.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1154
+height=569 id="Picture 91" src="index_files/image078.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 78</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 3 is also
+participating to the same dog adoption and currently owns 100 ethers.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=796
+height=599 id="Picture 92" src="index_files/image079.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 79</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 3 is
+sending 20 ethers.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1010
+height=629 id="Picture 93" src="index_files/image080.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 80</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>We have two
+adopters.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1032
+height=542 id="Picture 94" src="index_files/image081.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 81</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>The owner of <i>Double
+Dog Dare Rescue</i> decided to cancel the dog adoption.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1026
+height=557 id="Picture 95" src="index_files/image082.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 82</span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;color:black'>Cancel dog adoption</span></i><span
+style='font-size:14.0pt;color:black'> transaction</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1129
+height=536 id="Picture 96" src="index_files/image083.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 83</span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;color:black'>Double Dog
+Dare Rescue</span></i><span style='font-size:14.0pt;color:black'> is canceled.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1239
+height=586 id="Picture 98" src="index_files/image084.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 84</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>As it was
+canceled then Account 2 is going to get his token and ethers back. Account 2
+owns 65 ethers.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=984
+height=603 id="Picture 99" src="index_files/image085.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 85</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 2 got his
+25 ethers back and his account now is 90.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1118
+height=533 id="Picture 100" src="index_files/image086.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 86</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 3 is
+going to get his token and ethers back and owns 80 ethers currently.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=858
+height=465 id="Picture 101" src="index_files/image087.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 87</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 3
+received his 20 ethers back and his balance is 100</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1077
+height=548 id="Picture 102" src="index_files/image088.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 88</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Switching back to
+account 1</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1067
+height=598 id="Picture 103" src="index_files/image089.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 89</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 1 got has
+his token back when the dog adoption was canceled (Figure 35).</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1140
+height=573 id="Picture 104" src="index_files/image090.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 90</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Switching to
+Account 2</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1070
+height=544 id="Picture 105" src="index_files/image091.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 91</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 2 got his
+token back (Figure 76).</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1061
+height=593 id="Picture 106" src="index_files/image092.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 92</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Switching to
+Account 3</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1059
+height=613 id="Picture 107" src="index_files/image093.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 93</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 3 got his
+token back (Figure 80).</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:107%'>Testing
+on Rinkeby Testnet</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Before a
+project launches on the Ethereum blockchain a version is deployed to an
+Ethereum Test Network (testnet). Which simulates Ethereum.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Ether and tokens on a testnet
+are easy to obtain and carry no real-word value.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>As you remember Ganache sets
+up 10 default Ethereum addresses, complete with private keys and all, and
+pre-loads them with 100 simulated Ether each.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>To test the app <span
+style='color:black'>on Rinkeby network we somehow to get some eithers to test.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=359
+height=587 id="Picture 2" src="index_files/image094.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 94</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I switch to
+Rinkeyby Test Network in Metamask </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=638
+height=615 id="Picture 19" src="index_files/image095.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 95</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Account 3 has
+almost 0.2 ether. In your case all accounts will have zero ether. Luckily on
+Rinkeby we can easily request more either for testing purposes.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Navigate to </span><span
+class=MsoHyperlink><span style='font-size:14.0pt'><a
+href="https://faucet.rinkeby.io/" target="_blank">https://faucet.rinkeby.io/</a></span></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=961
+height=495 id="Picture 25" src="index_files/image096.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 96</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I am going to request
+funds via Google Plus, by publishing a new public post with my Ethereum address
+embedded in the content.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1070
+height=158 id="Picture 26" src="index_files/image097.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 97</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I go to
+plus.google.com. Open Account 3 in Metamask and copy the address to clipboard.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1028
+height=328 id="Picture 35" src="index_files/image098.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 98</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I click on the
+red little circle down here.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=788
+height=498 id="Picture 52" src="index_files/image099.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 99</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I paste the
+address from the clipboard and going to post it. Make sure it is marked as
+public.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=629
+height=417 id="Picture 56" src="index_files/image100.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 100</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I posted it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=549
+height=375 id="Picture 67" src="index_files/image101.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 101</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I clicked the
+small box</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=647
+height=417 id="Picture 70" src="index_files/image102.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 102</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I copy this
+entire URL and this is what test faucet wants to see.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=951
+height=337 id="Picture 77" src="index_files/image103.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 103</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I copied the link
+and paste it over here and select 18.75 ethers option</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1035
+height=382 id="Picture 85" src="index_files/image104.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 104</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Funding request
+accepted.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=825
+height=487 id="Picture 90" src="index_files/image105.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 105</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Now I can see it
+on Metamask. Account 3 has around 19 ether.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=766
+height=397 id="Picture 97" src="index_files/image106.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 106</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I chose Account 3
+as I already requested some ether for Account 1 before.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=764
+height=478 id="Picture 108" src="index_files/image107.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 107</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I forgot to
+mention about 12-word mnemonic that you can restore your account in Metamask.
+12-word phrase is provided to us</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>by Metamask when
+we first create out account. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=612
+height=613 id="Picture 109" src="index_files/image108.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 108</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Now we deploy the
+contracts to Rinkeby network.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=819
+height=369 id="Picture 110" src="index_files/image109.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 109</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>The contracts are
+deployed to Rinkeby network.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=926
+height=436 id="Picture 111" src="index_files/image110.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 110</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Go to </span><span
+class=MsoHyperlink><span style='font-size:14.0pt'><a
+href="https://rinkeby.etherscan.io/" target="_blank">https://rinkeby.etherscan.io</a></span></span><span
+style='font-size:14.0pt;color:black'> and search dog repository address
+0xf99de6d46f1de69821bb6e06ca4afd2dd2947c02 and you see Contract Creation
+transaction.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=969
+height=494 id="Picture 112" src="index_files/image111.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 111</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Contract is
+deployed from my first Account.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1095
+height=550 id="Picture 113" src="index_files/image112.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 112</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>This is token
+repository contract deployed.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=958
+height=515 id="Picture 114" src="index_files/image113.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 113</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Each transaction
+in our app (e.g. create dog adoption, transfer ownership etc.) is registered in
+Rinkeby network. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>The app works in
+view mode as well. You do not Metamask installed but you still can see the dog
+adoption app. You can not make transactions though. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>More about it on the
+description page [link]</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=412
+height=665 id="Picture 116" src="index_files/image114.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 114</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I view the app on
+my Android phone using Chrome browser. You see I do not have Metalmark installed,
+do not have an account but connected to Rinkeby network. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=367
+height=665 id="Picture 117" src="index_files/image115.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 115</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I am not allowed
+to make transactions as I do not have Metalmark installed.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=345
+height=665 id="Picture 118" src="index_files/image116.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 116</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>I just can view
+pages.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><img border=0 width=1004
+height=671 id="Picture 115" src="index_files/image117.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Figure 117</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>Microsoft Edge
+browser. Metamask not installed; view mode.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;color:black'> </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

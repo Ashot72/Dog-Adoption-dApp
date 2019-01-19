@@ -32,9 +32,12 @@ To get started.
        # build for production and launch server
         npm run build OR yarn run build
         npm start OR yarn start
-     
 ```   
 
+  Note, you should create mnemonic.js file in ethereum folder 
+     [https://github.com/Ashot72/Dog-Adoption-dApp/tree/master/ethereum](https://github.com/Ashot72/Dog-Adoption-dApp/tree/master/ethereum) and specify your 12-word mnemonic (More in the description link below).
+     
+     module.exports = 'beach machine supply simple analyst trophy dirt naive blur alcohol essence hundred'
 Go to [Dog Adoption Smart Contract GitHub](https://github.com/Ashot72/solidity-ERC-721--dogadoption-contract) page
 
 Go to [Dog Adoption dApp with Ganache Video](https://youtu.be/NAeeolO4D38) page

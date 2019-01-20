@@ -24,8 +24,8 @@ To get started.
 ```
        Clone the repository
    
-       git clone https://github.com/Ashot72/Nuxt2Forum
-       cd Nuxt2Forum
+       git clone https://github.com/Ashot72/Dog-Adoption-dApp.git
+       cd Dog-Adoption-dApp
        
        # install dependencies
        npm install OR yarn install

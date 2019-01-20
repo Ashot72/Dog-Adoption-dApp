@@ -146,8 +146,10 @@ export const actions = {
 
       watchIfDogAdopterApproved(dogAdoptionInstance, async res => {
         if (res.event) {
-          commit(SETWINNER, { adopterAddress, dogAdoptionId })
-          commit(SETLOADING, false, { root: true })
+          if (res.event.returnValues.dogAdoptionId == dogAdoptionId) {
+            commit(SETWINNER, { adopterAddress, dogAdoptionId })
+            commit(SETLOADING, false, { root: true })
+          }
         } else {
           dispatch(
             FAILED,
@@ -173,8 +175,10 @@ export const actions = {
 
       watchIfDogAdopterRefunded(dogAdoptionInstance, async res => {
         if (res.event) {
-          commit(SETWITHDRAWAL, { adopterAddress, dogAdoptionId })
-          commit(SETLOADING, false, { root: true })
+          if (res.event.returnValues.from == adopterAddress) {
+            commit(SETWITHDRAWAL, { adopterAddress, dogAdoptionId })
+            commit(SETLOADING, false, { root: true })
+          }
         } else {
           dispatch(
             FAILED,
@@ -284,8 +288,10 @@ export const actions = {
 
       watchIfDogAdoptinCanceled(dogAdoptionInstance, async res => {
         if (res.event) {
-          commit(DOGADOPTIONCANCELED, index)
-          commit(SETLOADING, false, { root: true })
+          if (res.event.returnValues.dogAdoptionId == index) {
+            commit(DOGADOPTIONCANCELED, index)
+            commit(SETLOADING, false, { root: true })
+          }
         } else {
           dispatch(
             FAILED,
@@ -314,7 +320,6 @@ export const actions = {
 
         watchIfDogAdoptinCreated(dogAdoptionInstance, async res => {
           if (res.event) {
-            //  dispatch(FETCHDOGADOPTIONS)
             resolve()
           } else {
             dispatch(

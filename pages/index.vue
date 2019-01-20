@@ -10,14 +10,7 @@
       <v-progress-linear color="indigo" indeterminate></v-progress-linear>
     </div>
     <v-layout row wrap style="margin-bottom: 75px">
-      <v-flex
-        xs12
-        sm6
-        md4
-        lg3
-        v-for="(dogAdoption, index) in dogAdoptions"
-        :key="dogAdoption.tokenId"
-      >
+      <v-flex xs12 sm6 md4 lg3 v-for="(dogAdoption, index) in dogAdoptions" :key="index">
         <v-card class="ma-2" :color="isInActive(dogAdoption) ? 'indigo lighten-5': 'white'">
           <v-responsive class="headline text-xs-center pt-2">
             <v-avatar size="200" class="grey lighten-2">
@@ -83,7 +76,7 @@
             <v-layout row wrap>
               <dog-adopter-dialog
                 v-show="isActive(dogAdoption) && isNotOwner(dogAdoption.owner) 
-                && currentBlock !== ''"
+                && currentBlock !== '' && networkReady"
                 btn-color="indigo"
                 :index="dogAdoption.index"
               />
@@ -125,7 +118,7 @@ import {
   CANCELDOGADOPTION,
   FETCHDOGADOPTIONS
 } from "@/store/dogAdoption/types";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
   name: "DogAdoptions",
@@ -144,6 +137,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(["networkReady"]),
     ...mapState("dogAdoption", ["dogAdoptions"])
   },
   methods: {

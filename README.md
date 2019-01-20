@@ -6,13 +6,17 @@ This is a dog adoption dApp (decentralized application) based on my Dog Adoption
  
 A dog owner info and picture will be stored on  [IPFS](https://ipfs.infura.io/ipfs/) (Interplanetary File System) as Ethereum is too heavy/expensive to store large blobs like images, video etc.
 
-[Ganache](https://truffleframework.com/ganache) is chosen to make DApp development faster
+[Ganache](https://truffleframework.com/ganache) is chosen to make DApp development faster.
 
-App will be deployed to [Rinkeby](https://rinkeby.etherscan.io/) test network. 
+App will be deployed to [Rinkeby](https://rinkeby.etherscan.io/) test network. Also, how to request more ether on Rinkeby for testing purpases.
 
 We will not install a Geth or Parity node on our computer as it is not that easy and is time consuming. Instead, we will use [Infura](https://infura.io/) which is a Hosted Ethereum node cluster that lets your users run your application without requiring them to set up their own Ethereum node or wallet. 
 
 The app will make use of  [Metamask](https://metamask.io/) browser extension which turns Google Chrome into an Ethereum browser, letting websites retrieve data from the blockchain, and letting users securely manage identities and sign transactions.
+
+You can deploy contracts to any network and test it without changing a single line of dApp code! (no hard-coded contract address). The app also works in view mode. In view mode Metamask is not installed but you still can view pages though you cannot make transactions.
+
+
 
 Dog Adoption Application (dApp) is hosted on Firebase - [https://dog-adoption-faf7b.firebaseapp.com/](https://dog-adoption-faf7b.firebaseapp.com/)
 

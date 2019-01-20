@@ -10,14 +10,7 @@
       <v-progress-linear color="indigo" indeterminate></v-progress-linear>
     </div>
     <v-layout row wrap class="mb-5">
-      <v-flex
-        xs12
-        sm6
-        md4
-        lg3
-        v-for="(dogAdopter, index) in dogAdoptersByIndex(id)"
-        :key="dogAdopter.tokenId"
-      >
+      <v-flex xs12 sm6 md4 lg3 v-for="(dogAdopter, index) in dogAdoptersByIndex(id)" :key="index">
         <v-card class="ma-2">
           <v-responsive class="headline text-xs-center pt-2">
             <v-avatar size="200" class="grey lighten-2">

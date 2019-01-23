@@ -22,6 +22,16 @@ Dog Adoption Application (dApp) is hosted on Firebase - [https://dog-adoption-fa
 
 To get started.
 ```
+       To deploy contracts to Ganache, first run Ganache UI then navigate to project's 
+       'ethereum' folder and run 'truffle migrate --reset' command. It will generate 'build'
+       folder right under 'ethereum' folder and will deploy your contracts to Ganache.
+       
+       To deploy contracts to Rinkeby test network go to 'ethereum' folder (do not forget to 
+       create mnemonic.js file and specify 12-word mnemonic which is described below) and run 
+       'truffle migrate --network rinkeby --reset' command.It will generate 'build' folder
+        right under 'ethereum' folder and will deploy your contracts to Rinkeby test network. 
+       
+
        Clone the repository
    
        git clone https://github.com/Ashot72/Dog-Adoption-dApp.git
